@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/16 17:59:03 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:08:08 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@
 
 # define READ_END	0
 # define WRITE_END	1
+
+/*
+	pipe_parse = pipa y antes de redireccion spliteado por espacios
+	pipe = 0 si es ultima pipa / 1 si no es la ultima
+	read = 1 si pilla imput en redireccion / 0 en el resto / 2 en no sabemos
+*/
 
 typedef struct s_pipe
 {

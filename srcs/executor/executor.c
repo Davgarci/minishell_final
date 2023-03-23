@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 21:41:24 by davgarci          #+#    #+#             */
-/*   Updated: 2023/03/17 04:05:44 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/23 20:04:04 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,21 +286,25 @@ int	ft_pipe(t_pipe *list_cmnd, int *pipe_open, int *ret)
 		if (pipe(list_cmnd->fd))
 			return (0);
 	g_c.forking = 1;
-	if ((pid = fork()) < 0)
-		return (0);
-	else if (pid == 0)
-		ft_child_process(list_cmnd);
-	else
+	if (list_cmnd->pipe == 1 || builtins(list_cmnd->pipe_parse) == 42)
 	{
-		waitpid(pid, &status, 0);
-		if ((g_c.read != 1) && g_c.redirection_out
-			&& !list_cmnd->next && !(g_c.read = 0)
-			&& close(g_c.redirection_out))
-			g_c.redirection_out = 0;
-		ft_close_fds(list_cmnd, *pipe_open);
-		if (WIFEXITED(status))
-			*ret = WEXITSTATUS(status);
-		g_c.forking = 0;
+		printf("comando [%s]\n", list_cmnd->pipe_parse[0]);
+		if ((pid = fork()) < 0)
+			return (0);
+		else if (pid == 0)
+			ft_child_process(list_cmnd);
+		else
+		{
+			waitpid(pid, &status, 0);
+			if ((g_c.read != 1) && g_c.redirection_out
+				&& !list_cmnd->next && !(g_c.read = 0)
+				&& close(g_c.redirection_out))
+				g_c.redirection_out = 0;
+			ft_close_fds(list_cmnd, *pipe_open);
+			if (WIFEXITED(status))
+				*ret = WEXITSTATUS(status);
+			g_c.forking = 0;
+		}
 	}
 	return (1);
 }

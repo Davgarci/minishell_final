@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:03:40 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/16 09:14:31 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:07:41 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "minishell.h"
 
-int		builtins(char *str);
+int		builtins(char **commands);
 
 /*__SIGNALS___*/
 void	manage_signal(void);
