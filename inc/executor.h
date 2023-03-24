@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:25:30 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/21 00:25:52 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:36:04 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ char	*check_path(void);
 char	*only_path(char *cmd);
 void	cmd_not_found(char *cmd);
 void	exit_failure(char *err_msg, char **to_free, int flag);
+
 
 #endif

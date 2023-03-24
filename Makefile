@@ -6,13 +6,13 @@
 #    By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/24 01:40:37 by davgarci         ###   ########.fr        #
+#    Updated: 2023/03/25 00:18:48 by davgarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Colors ###
 
-RESET	=	\033c
+#RESET	=	\033c
 GREEN	=	\033[1;32m
 RED		=	\033[0;31m
 CYAN	=	\033[0;36m
@@ -61,7 +61,7 @@ OBJS = $(SRCS:.c=.o)
 LIB = libft/libft.a
 
 CC = gcc
-CFLAGS	 = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS	 = -Wall -Wextra -Werror #-g3 -fsanitize=address -fsanitize=leak
 CFLAGS	+= -I inc
 CFLAGS	+= -I libft
 READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
@@ -69,7 +69,7 @@ READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)
 $(NAME): $(OBJS)
 	@make -C libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(READLINE) -o $(NAME)
-	@echo "$(CYAN) ❄️ Operation Helsinki Completed ❄️"
+	@echo "$(CYAN) ❄️ Operation Helsinki Completed ❄️ $(WHITE)"
 	
 all: $(NAME)
 

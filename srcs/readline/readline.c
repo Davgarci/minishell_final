@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 02:11:39 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 00:26:52 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ void	readline_create(void)
 		pipas_handler();
 		ft_free_matrix(g_c.tokens);
 		free(command_buf);
+		system("leaks -q minishell");
+		//ft_lstclear2(&g_c.pipe_list);
 	}
 }

@@ -6,11 +6,13 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:37:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 01:34:24 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:52:32 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+t_cosas	g_c;
 
 int	main(int argc, char **argv, char **env)
 {
@@ -20,7 +22,7 @@ int	main(int argc, char **argv, char **env)
 	g_c.dolar_q = 42;
 	manage_signal();
 	readline_create();
-	exit(EXIT_SUCCESS);
+	//exit(EXIT_SUCCESS);
 	return (0);
 }
 

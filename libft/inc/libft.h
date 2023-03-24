@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:44:42 by psegura-          #+#    #+#             */
-/*   Updated: 2023/01/31 14:05:44 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:53:15 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 
 void		ft_print_matrix(char **matrix, char *str);
 void		ft_free_matrix(char **matrix);
+void		ft_free_matrix2(char **matrix);
 int			ft_len_matrix(char **matrix);
 int			ft_locate_str_in_matrix(char **matrix, char *str);
 char		**ft_cpy_matrix(char **matrix);

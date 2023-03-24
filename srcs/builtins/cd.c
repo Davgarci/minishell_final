@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:01:49 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/18 18:58:02 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:52:16 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	ft_cd(char **env, char **commands)
 	}
 	else if (chdir(path) == -1)
 	{
-		printf("ESTO NO EXISTE\n");
-		exit(EXIT_FAILURE);
+		printf("cd: No such file or directory\n");
+		//exit(EXIT_FAILURE);
 	}
 	ft_free_matrix(commands);
 	return (EXIT_SUCCESS);

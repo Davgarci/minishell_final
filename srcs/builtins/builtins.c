@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:57:51 by davgarci          #+#    #+#             */
-/*   Updated: 2023/03/23 19:54:26 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/24 21:03:12 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	builtins(char **commands)
 		return (ft_unset(g_c.env, commands));
 	else
 	{
-		printf("last else [%s]\n", commands[0]);
 		//free(commands); // No hay que hacerlo pq si no hemos conseguido builtins, lo va a hacer el execve
 		return (42);
 	}

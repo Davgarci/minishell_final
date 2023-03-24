@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:41:16 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 01:46:23 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:36:07 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_cosas {
 	t_pipe	*pipe_list;
 }	t_cosas;
 
-t_cosas	g_c;
+extern t_cosas	g_c;
+void	ft_lstclear2(t_pipe **lst);
 
 #endif

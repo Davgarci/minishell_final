@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:04 by psegura-          #+#    #+#             */
-/*   Updated: 2023/02/18 18:59:06 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 00:26:45 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_export(char **env, char **args)
 	int		pos;
 	int		i;
 	char	**temp;
+	char	*aux;
 
 	if (!args[1])
 		return (ft_print_exported(env));
@@ -72,13 +73,16 @@ int	ft_export(char **env, char **args)
 	{
 		if (check_syntax(args[i]) == 0)
 			return (printf("export: %s: not a valid identifier\n", args[i]));
-		pos = ft_locate_str_in_matrix(g_c.env, find_until_char(args[i], '='));
+		aux = find_until_char(args[i], '=');
+		pos = ft_locate_str_in_matrix(g_c.env, aux);
+		if (ft_strcmp(aux, args[i]))
+			free(aux);
 		g_c.env = ft_delete_row_matrix(g_c.env, pos);
 		temp = ft_add_row_matrix(g_c.env, args[i]);
 		ft_free_matrix(g_c.env);
 		g_c.env = ft_cpy_matrix(temp);
 		ft_free_matrix(temp);
-		free(args[i]);
+		//free(args[i]);
 		i++;
 	}
 	ft_free_matrix(env);

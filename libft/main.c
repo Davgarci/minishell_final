@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 02:37:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/01/21 13:08:07 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 15:34:45 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	main(int argc, char **argv, char **env)
 	ft_print_matrix(after_delete, "after_delete");
 	after_add = ft_add_row_matrix(after_delete, "paco=1234");
 	ft_print_matrix(after_add, "after_add");
-	system("leaks -q a.out");
+	//system("leaks -q a.out");
 	return (0);
 }

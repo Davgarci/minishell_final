@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/01/26 02:28:18 by psegura-         ###   ########.fr        #
+#    Updated: 2023/03/25 00:06:41 by davgarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Colors ###
 
-RESET	=	\033c
+#RESET	=	\033c
 GREEN	=	\033[1;32m
 RED		=	\033[0;31m
 CYAN	=	\033[0;36m
