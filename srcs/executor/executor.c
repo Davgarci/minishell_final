@@ -6,11 +6,38 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 21:41:24 by davgarci          #+#    #+#             */
-/*   Updated: 2023/03/23 20:04:04 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:30:25 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void clear_t_pipe_list(t_pipe **head)
+{
+    if (*head == NULL) {
+        return;
+    }
+
+    // recursively free the rest of the list starting from the second node
+    if ((*head)->next != *head) {
+        clear_t_pipe_list(&((*head)->next));
+    }
+
+    // free the current node
+    t_pipe *current = *head;
+    *head = (*head)->next; // update the head pointer
+    // free the pipe_parse array
+    ft_free_matrix(current->pipe_parse);
+    // close any open file descriptors
+    if (current->fd[0] != -1) {
+        close(current->fd[0]);
+    }
+    if (current->fd[1] != -1) {
+        close(current->fd[1]);
+    }
+    // free the node
+    free(current);
+}
 
 static void	initialize(int *quotes, int *i, char *quote, int *words)
 {
@@ -161,7 +188,7 @@ void	ft_lstadd_back_pipe(t_pipe **alst, t_pipe *newitem)
 
  //LINE [188]: Este creo que lo teneis hecho, es para separar el 
  //comando en palabras
-t_pipe	*new_pipe(char *command, int have_pipe, t_pipe *pipes)
+t_pipe	*new_pipe(char *command, int have_pipe, t_pipe **pipes)
 {
 	t_pipe	*new;
 
@@ -170,7 +197,7 @@ t_pipe	*new_pipe(char *command, int have_pipe, t_pipe *pipes)
 	new->pipe_parse = ft_split(command, ' ');
 	new->pipe = have_pipe;
 	new->read = g_c.read;
-	new->previous = ft_lstlast_pipe(pipes);
+	new->previous = ft_lstlast_pipe(pipes[0]);
 	new->next = 0;
 	return (new);
 }
@@ -214,9 +241,9 @@ int	create_pipes(void)
 		g_c.tokens[i] = ft_split(g_c.tokens[i], '>')[0];
 		g_c.tokens[i] = ft_split(g_c.tokens[i], '<')[0];
 		if (g_c.tokens[i + 1] == NULL)
-			new_elem = new_pipe(g_c.tokens[i], 0, g_c.pipe_list);
+			new_elem = new_pipe(g_c.tokens[i], 0, &g_c.pipe_list);
 		else
-			new_elem = new_pipe(g_c.tokens[i], 1, g_c.pipe_list);
+			new_elem = new_pipe(g_c.tokens[i], 1, &g_c.pipe_list);
 		ft_lstadd_back_pipe(&g_c.pipe_list, new_elem);
 		i++;
 	}
@@ -323,5 +350,7 @@ void	pipas_handler(void)
 			return ;
 		g_c.pipe_list = g_c.pipe_list->next;
 	}
+	clear_t_pipe_list(&g_c.pipe_list);
+	system("leaks -q minishell");
 	return ;
 }

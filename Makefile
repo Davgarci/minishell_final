@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/17 04:09:08 by psegura-         ###   ########.fr        #
+#    Updated: 2023/03/24 01:40:37 by davgarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ OBJS = $(SRCS:.c=.o)
 LIB = libft/libft.a
 
 CC = gcc
-CFLAGS	 = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS	 = -Wall -Wextra -Werror #-g3 -fsanitize=address
 CFLAGS	+= -I inc
 CFLAGS	+= -I libft
 READLINE = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include

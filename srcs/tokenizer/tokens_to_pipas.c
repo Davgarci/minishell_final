@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokens_to_pipas.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:08:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/19 13:44:57 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:09:42 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,19 @@ int	count_pipas(char **tokens)
  */
 void	join_commands(char **final, char **tokens, int *i, int *j)
 {
+	char	*aux;
+
+	aux = NULL;
 	if (final[*(j)] == NULL)
 		final[*(j)] = ft_strdup(tokens[*(i)]);
 	else
 	{
-		final[*(j)] = ft_strjoin(final[*(j)], " ");
-		final[*(j)] = ft_strjoin(final[*(j)], tokens[*(i)]);
+		aux = final[*(j)];
+		final[*(j)] = ft_strjoin(aux, " ");
+		free(aux);
+		aux = final[*(j)];
+		final[*(j)] = ft_strjoin(aux, tokens[*(i)]);
+		free(aux);
 	}
 }
 
@@ -116,6 +123,7 @@ char	**tokens_to_pipas(char **tokens)
 		i++;
 	}
 	final[count_pipas(tokens)] = NULL;
+	ft_free_matrix(tokens);
 	return (final);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:22:43 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/19 13:44:53 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:00:45 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_quotes(const char *s)
 int	token_is_pipe(char *token)
 {
 	int			i;
-	static char	*symbols[] = {"|", NULL};
+	const char	*symbols[] = {"|", NULL};
 
 	i = -1;
 	if (!token)

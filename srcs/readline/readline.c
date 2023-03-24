@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readline.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/19 13:47:12 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 02:11:39 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,13 @@ int	ft_continue(char *command_buf)
 void	readline_create(void)
 {
 	char	*command_buf;
+	char	*line;
 
 	while (1)
 	{
-		command_buf = ft_strtrim(readline(PROMPT), " ");
+		line = readline(PROMPT);
+		command_buf = ft_strtrim(line, " ");
+		free(line);
 		if (!command_buf)
 			exit(0);
 		if (!*command_buf)
@@ -70,7 +73,7 @@ void	readline_create(void)
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
 		expand_while();
 		pipas_handler();
-		free(command_buf);
 		ft_free_matrix(g_c.tokens);
+		free(command_buf);
 	}
 }
