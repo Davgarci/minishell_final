@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:22:43 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 02:00:45 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 04:12:55 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,3 @@ int	token_is_pipe(char *token)
 			return (1);
 	return (0);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:02:04 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 00:26:45 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 04:16:10 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	ft_export(char **env, char **args)
 
 	if (!args[1])
 		return (ft_print_exported(env));
-	i = 1;
-	while (args[i])
+	i = 0;
+	while (args[++i])
 	{
 		if (check_syntax(args[i]) == 0)
 			return (printf("export: %s: not a valid identifier\n", args[i]));
@@ -82,11 +82,7 @@ int	ft_export(char **env, char **args)
 		ft_free_matrix(g_c.env);
 		g_c.env = ft_cpy_matrix(temp);
 		ft_free_matrix(temp);
-		//free(args[i]);
-		i++;
 	}
 	ft_free_matrix(env);
 	return (EXIT_SUCCESS);
 }
-
-		// printf("TOKEN PA: [%s]\n", find_until_char(args[i], '='));

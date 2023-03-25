@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:55:15 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 00:26:52 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 04:15:23 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ int	ft_continue(char *command_buf)
 	return (0);
 }
 
+void	next_funcionality(void)
+{
+	expand_while();
+	pipas_handler();
+}
+
 void	readline_create(void)
 {
 	char	*command_buf;
@@ -71,11 +77,8 @@ void	readline_create(void)
 		if (ft_continue(command_buf))
 			continue ;
 		g_c.tokens = tokens_to_pipas(g_c.tokens);
-		expand_while();
-		pipas_handler();
+		next_funcionality();
 		ft_free_matrix(g_c.tokens);
 		free(command_buf);
-		system("leaks -q minishell");
-		//ft_lstclear2(&g_c.pipe_list);
 	}
 }

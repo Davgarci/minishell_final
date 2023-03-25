@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:35:24 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 20:21:33 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 01:41:53 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_exec(char **cmd)
 		if (!path)
 		{
 			cmd_not_found(cmd[0]);
-			exit_failure(path, cmd, 0);
+			exit_failure(path, cmd, 127);
 		}
 	}
 	execve(path, cmd, g_c.env);
