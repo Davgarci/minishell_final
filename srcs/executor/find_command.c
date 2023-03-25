@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 10:26:54 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 01:43:23 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:24:12 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	exit_failure(char *err_msg, char **to_free, int flag)
 	if (flag == 1)
 		perror(err_msg);
 	ft_free_matrix(to_free);
-	ft_putstr_fd("sale por aqui\n", 2);
 	exit(flag);
 }
 

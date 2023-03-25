@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 21:03:40 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/23 19:07:41 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:07:10 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int		ft_export(char **env, char **args);
 int		ft_unset(char **env, char **args);
 
 /*__EXIT____*/
+int		ft_exit(char **args);
 
 #endif

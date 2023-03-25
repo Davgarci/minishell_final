@@ -6,7 +6,7 @@
 #    By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/25 00:18:48 by davgarci         ###   ########.fr        #
+#    Updated: 2023/03/25 17:16:29 by davgarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,11 @@ SRCS =											\
 		srcs/executor/exec_cmd.c				\
 		srcs/executor/executor.c				\
 		srcs/executor/cmd_type.c				\
+		srcs/executor/executor1.c				\
+		srcs/executor/executor2.c				\
+		srcs/executor/executor3.c				\
+		srcs/executor/executor4.c				\
+		srcs/executor/executor5.c				\
 												\
 		srcs/utils/errors.c						\
 		srcs/utils/environment.c				\

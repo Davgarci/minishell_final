@@ -6,7 +6,7 @@
 /*   By: davgarci <davgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:57:51 by davgarci          #+#    #+#             */
-/*   Updated: 2023/03/25 04:20:39 by davgarci         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:42:44 by davgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	builtins(char **commands)
 		return (ft_export(g_c.env, commands));
 	else if (ft_strcmp(commands[0], "unset") == 0)
 		return (ft_unset(g_c.env, commands));
+	else if (ft_strcmp(commands[0], "exit") == 0)
+		return (ft_exit(commands));
 	else
 		return (42);
 }
